@@ -6,7 +6,7 @@ const Shop = () => {
   return (
     <SafeAreaView>
       <View className="w-full h-full flex justify-center items-center">
-        <Text className="text-[72px] font-ssemibold text-[#000]">Nothing here</Text>
+        <Text className="text-[32px] font-ssemibold text-[#000]">Nothing here</Text>
       </View>
     </SafeAreaView>
   )

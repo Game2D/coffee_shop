@@ -1,4 +1,4 @@
-import { View, Text, TouchableWithoutFeedback, Image, TouchableOpacity, StatusBar } from 'react-native'
+import { View, Text, TouchableWithoutFeedback, Image, TouchableOpacity, StatusBar, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { icons } from '../constants';
@@ -15,7 +15,8 @@ const Order = ({ navigation, route }) => {
 
   return (
     <SafeAreaView>
-      <View className="w-full h-full pt-8 bg-[#F9F9F9]">
+      <View className="w-full h-full bg-[#F9F9F9]">
+      <ScrollView className="pt-8 h-full" contentContainerStyle={{flexGrow: 1}}>
         <View className="mx-8 flex flex-row justify-between items-center">
             <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
                 <Image 
@@ -34,7 +35,7 @@ const Order = ({ navigation, route }) => {
             </TouchableWithoutFeedback>
         </View>
 
-        <View className="mx-8 flex flex-row flex-1 max-h-[50px] mt-10 bg-[#EDEDED] p-1 rounded-2xl">
+        <View className="mx-8 flex flex-row mt-10 bg-[#EDEDED] p-1 rounded-2xl">
             {cargo.map((item) => (
                 <TouchableOpacity 
                     activeOpacity={1}
@@ -122,7 +123,7 @@ const Order = ({ navigation, route }) => {
             </TouchableOpacity>
         </View>
 
-        <View className="mx-8 mt-6">
+        <View className="mx-8 mt-6 mb-8">
             <Text className="font-ssemibold text-[#000] text-[18px]">Payment Summary</Text>
             
             <View className="flex flex-row justify-between mt-4">
@@ -139,7 +140,7 @@ const Order = ({ navigation, route }) => {
             </View>
         </View>
 
-        <View className="mt-auto bg-white rounded-t-2xl p-8">
+        <View className="fixed mb-8 mt-auto bg-white rounded-t-2xl p-8">
             <View className="flex flex-row justify-between items-center">
                 <View className="flex flex-row items-center gap-4">
                     <Image 
@@ -164,6 +165,7 @@ const Order = ({ navigation, route }) => {
                 <Text className="text-[18px] font-ssemibold text-white">Order</Text>
             </TouchableOpacity>
         </View>
+      </ScrollView>
       </View>
 
       <StatusBar backgroundColor='#F9F9F9' barStyle='dark-content' />
